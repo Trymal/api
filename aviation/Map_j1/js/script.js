@@ -1,6 +1,6 @@
 var MAP_API = {
 
-	AVIATION_API_URL: "http://api.aviationstack.com/v1/airports?access_key=efb8a0fa89b9b0e6547920613d5b9fd2",
+	AVIATION_API_URL: "http://cy.me/API/api/airports",
 
 	infoWindow : null,
 	map : null,
@@ -84,7 +84,7 @@ var MAP_API = {
 		const airportsList = document.querySelector("#airports-list")
 
 		const el = document.createElement('li')
-		el.innerHTML = `${airport.airport_name}`
+		el.innerHTML = `${airport.name}`
 		airportsList.appendChild(el)
 		el.addEventListener('click', () => {
 			this.map.setCenter({ lat: parseFloat(airport.latitude), lng: parseFloat(airport.longitude)})
@@ -115,8 +115,7 @@ var MAP_API = {
 		})
 
 		const contentBubble = `<div class="infoBubble">
-		<p>Name : ${airport.airport_name}</p>
-		<p>Country : ${airport.country_name}</p>
+		<p>Name : ${airport.name}</p>
 		<p>Latitude : ${airport.latitude}</p>
 		<p>Longitude : ${airport.longitude}</p>
 		</div>`
